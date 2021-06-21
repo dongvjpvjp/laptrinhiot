@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+
+
+<!-- 
+    <script type="module" src="./webapp.js" defer></script> -->
+</head>
+<body>
+    <form>
+        <p id="lg">
+            
+        </p>
+        <input type="checkbox" name="cb_led" value="Led 1"> LED 1 <br>
+        <input type="checkbox" name="cb_led" value="Led 2"> LED 2 <br> 
+        <input type="checkbox" name="cb_led" value="Led 2"> Sensor power <br>
+        <input type="button" value="Submit" id="btn"> 
+        
+        
+    </form>
+</body>
+<!-- <script defer>
+    const socket = io();
+    //   $('#form').submit(function(){
+    //     socket.emit('message', $('#Input').val());
+    //     //socket.emit('message', "Input");
+    //     //$('#Input').val('');
+    //     return false;
+    // });
+    var ledstt = [1,1,1];
+    var btn = document.getElementById('btn');
+    btn.onclick = () => {
+        var json = {
+            led : ledstt,
+        }
+        socket.emit('LED',json);
+    }
+    socket.on('LIGHT',(LIGHT)=>{
+        var lg = document.getElementById('lg');
+        lg.innerHTML = (LIGHT.digital ==1) ? 'Sensor không bắt được ánh sáng' : ' Sensor bắt được ánh sáng';
+    })
+     
+</script> -->
+<script defer> 
+
+
+const socket=io.connect('/webapp');
+
+socket.on("connect",(connect)=>{
+    console.log("connected")
+	mySocket.emit("LIGHT") 
+    var ledstt = [1,1,1];
+    var btn = document.getElementById('btn');
+    btn.onclick = () => {
+        var json = {
+            led : ledstt,
+        }
+        socket.emit('LED',json);
+    }
+    socket.on('LIGHT',(LIGHT)=>{
+        var lg = document.getElementById('lg');
+        lg.innerHTML = (LIGHT.digital ==1) ? 'Sensor không bắt được ánh sáng' : ' Sensor bắt được ánh sáng';
+    })
+    
+
+
+})
+</script>
+</html>

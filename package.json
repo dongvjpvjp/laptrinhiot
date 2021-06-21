@@ -1,0 +1,19 @@
+{
+  "name": "project10-nhom09",
+  "version": "1.0.0",
+  "description": "Dieu khien bien quang cao voi sensor anh sang",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nguyen Xuan Dong",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ip": "^1.1.5",
+    "mysql": "^2.18.1",
+    "socket.io": "^3.0.1",
+    "socket.io-client": "^3.0.1",
+    "socketio-wildcard": "^2.0.0"
+  }
+}
